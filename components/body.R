@@ -6,9 +6,4 @@
 # components as well.
 ###################
 body <- dashboardBody(
-  fluidRow(
-    # PLOT THE THTINGS
-    box( plotOutput("scatter") ),
-    box( plotOutput("facet_scatter") )
-  )
-)
+  uiOutput('geom_display'))

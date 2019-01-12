@@ -10,7 +10,13 @@ sidebar <- dashboardSidebar(
       "theme",
       label = 'Choose a theme',
       choices = themes,
-      selected = 'theme_classic')
+      selected = 'theme_classic'),
+    
+    selectInput(
+      "geom",
+      label = 'Choose a geom:',
+      choices = geoms,
+      selected = 'scatter')
     
   )
 )
