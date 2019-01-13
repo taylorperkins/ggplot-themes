@@ -41,6 +41,16 @@ body <- dashboardBody(
               box( plotOutput("bar_continuous") ),
               box( plotOutput("hist") )
             )
+    ),
+    
+    tabItem(tabName = "heatmap_2d",
+            h2("ggplot Example Heatmaps"),
+            fluidRow(
+              box( plotOutput("bin2d") ),
+              box( plotOutput("bin2d_10") ),
+              box( plotOutput("bin2d_30") ),
+              box( plotOutput("bin2d_binwidtth") )
+            )
     )
   )
 )

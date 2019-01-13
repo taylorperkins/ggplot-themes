@@ -43,3 +43,8 @@ reference_line_plot <- function(
 bar_plot <- function() {
   ggplot(mpg, aes(class))
 }
+
+
+heatmap_plot <- function() {
+  ggplot(diamonds, aes(x, y)) + xlim(4, 10) + ylim(4, 10)
+}

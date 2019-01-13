@@ -74,5 +74,15 @@ server <- function(input, output, session) {
     df <- data.frame(x = rep(c(2.9, 3.1, 4.5), c(5, 10, 4)))
     ggplot(df, aes(x)) + geom_histogram(binwidth = 0.5) + theme_reactive()()
   })
+  
+  
+  # ###################
+  # # HEATMAP GEOMS
+  # ###################
+  output$bin2d <- renderPlot({ heatmap_plot() + geom_bin2d() + theme_reactive()() })
+  output$bin2d_10 <- renderPlot({ heatmap_plot() + geom_bin2d(bins = 10) + theme_reactive()() })
+  output$bin2d_30 <- renderPlot({ heatmap_plot() + geom_bin2d(bins = 30) + theme_reactive()() })
+  output$bin2d_binwidtth <- renderPlot({ heatmap_plot() + geom_bin2d(binwidth = c(0.1, 0.1)) + theme_reactive()() })
+  
 
 }

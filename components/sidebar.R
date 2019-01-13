@@ -14,7 +14,8 @@ sidebar <- dashboardSidebar(
     
     menuItem("Scatter", tabName = "scatters"),
     menuItem("Reference Lines", tabName = "reference_lines"),
-    menuItem("Bar", tabName = "bars")
+    menuItem("Bar", tabName = "bars"),
+    menuItem("Heatmap 2D Bin Counts", tabName = "heatmap_2d")
     
   )
 )
