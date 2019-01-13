@@ -12,11 +12,9 @@ sidebar <- dashboardSidebar(
       choices = themes,
       selected = 'theme_classic'),
     
-    selectInput(
-      "geom",
-      label = 'Choose a geom:',
-      choices = geoms,
-      selected = 'scatter')
+    menuItem("Scatter", tabName = "scatters"),
+    menuItem("Reference Lines", tabName = "reference_lines"),
+    menuItem("Bar", tabName = "bars")
     
   )
 )

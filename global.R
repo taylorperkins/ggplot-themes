@@ -8,16 +8,11 @@ library(shinydashboard)
 
 library(ggplot2)
 
+
 ###################
 # DATASETS USED FOR PLOTS
 ###################
 source('./datasets.R')
-
-###################
-# UI COMPONENTS PER GEOM
-###################
-source('./components/geoms/scatter.R')
-source('./components/geoms/reference_lines.R')
 
 
 ###################
@@ -44,15 +39,7 @@ themes <- c(
 # CURRENTLY SUPPORTED GEOMS
 # 
 # A geom is supported if it has the following: 
-#   * A UI component that lives in './components/geoms/'.
-#      Function like: 
-#        <geom_name>_geom -> function() {
-#          fluidRow(..)
-#        }
-#
+#   * A UI component that lives in './components/body.R'.
 #   * Base and other supporting plots in './plots.R'
 #   * Server components to return appropriate plots in './server.R'
 ###################
-geoms <- c(
-  'scatter',
-  'reference_line')

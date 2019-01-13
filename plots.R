@@ -38,3 +38,8 @@ reference_line_plot <- function(
     }
   }
 }
+
+
+bar_plot <- function() {
+  ggplot(mpg, aes(class))
+}
