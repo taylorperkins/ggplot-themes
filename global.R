@@ -17,12 +17,13 @@ source('./datasets.R')
 # UI COMPONENTS PER GEOM
 ###################
 source('./components/geoms/scatter.R')
+source('./components/geoms/reference_lines.R')
 
 
 ###################
 # PLOTS FOR SUPPORTING SELECTED GEOMS
 ###################
-source('./plots.py')
+source('./plots.R')
 
 
 ###################
@@ -53,4 +54,5 @@ themes <- c(
 #   * Server components to return appropriate plots in './server.R'
 ###################
 geoms <- c(
-  'scatter')
+  'scatter',
+  'reference_line')
