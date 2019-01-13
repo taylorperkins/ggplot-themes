@@ -51,6 +51,24 @@ body <- dashboardBody(
               box( plotOutput("bin2d_30") ),
               box( plotOutput("bin2d_binwidtth") )
             )
+    ),
+    
+    tabItem(tabName = "boxplot",
+            h2("ggplot Example Boxplots"),
+            fluidRow(
+              box( plotOutput("boxplot") ),
+              box( plotOutput("boxplot_coord_flip") ),
+              box( plotOutput("boxplot_notch") ),
+              box( plotOutput("boxplot_varwidth") ),
+              box( plotOutput("boxplot_fill") ),
+              box( plotOutput("boxplot_outlier") ),
+              box( plotOutput("boxplot_jitter") ),
+              box( plotOutput("boxplot_aes_colour") ),
+              box( plotOutput("boxplot_continuous_x") ),
+              box( plotOutput("boxplot_continuous_x_2") ),
+              box( plotOutput("boxplot_transparent_outliers") ),
+              box( plotOutput("boxplot_identity") )
+            )
     )
   )
 )

@@ -48,3 +48,12 @@ bar_plot <- function() {
 heatmap_plot <- function() {
   ggplot(diamonds, aes(x, y)) + xlim(4, 10) + ylim(4, 10)
 }
+
+
+boxplot_plot_1 <- function() {
+  ggplot(mpg, aes(class, hwy))
+}
+
+boxplot_plot_2 <- function() {
+  ggplot(diamonds, aes(carat, price))
+}
