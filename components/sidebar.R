@@ -16,7 +16,8 @@ sidebar <- dashboardSidebar(
     menuItem("Reference Lines", tabName = "reference_lines"),
     menuItem("Bar", tabName = "bars"),
     menuItem("Heatmap 2D Bin Counts", tabName = "heatmap_2d"),
-    menuItem("Boxplot", tabName = "boxplot")
+    menuItem("Boxplot", tabName = "boxplot"),
+    menuItem("Contour", tabName = "contour")
     
   )
 )

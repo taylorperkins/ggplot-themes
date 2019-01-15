@@ -54,6 +54,24 @@ boxplot_plot_1 <- function() {
   ggplot(mpg, aes(class, hwy))
 }
 
+
 boxplot_plot_2 <- function() {
   ggplot(diamonds, aes(carat, price))
 }
+
+
+contour_plot <- function(density = TRUE) {
+  if (density) {
+    return(ggplot(faithfuld, aes(waiting, eruptions, z = density)))
+  } else {
+    return(ggplot(faithful, aes(waiting, eruptions)))
+  }
+  
+}
+
+
+
+
+
+
+

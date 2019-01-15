@@ -69,6 +69,21 @@ body <- dashboardBody(
               box( plotOutput("boxplot_transparent_outliers") ),
               box( plotOutput("boxplot_identity") )
             )
+    ),
+    
+    tabItem(tabName = "contour",
+            h2("ggplot Example 2d contours of a 3d Surface"),
+            fluidRow(
+              box( plotOutput("contour") ),
+              box( plotOutput("density_2d") ),
+              box( plotOutput("contour_bins_2") ),
+              box( plotOutput("contour_bins_10") ),
+              box( plotOutput("contour_binwidth_01") ),
+              box( plotOutput("contour_binwidth_001") ),
+              box( plotOutput("contour_aes_colour") ),
+              box( plotOutput("contour_colour_red") ),
+              box( plotOutput("raster_with_contour") )
+            )
     )
   )
 )
