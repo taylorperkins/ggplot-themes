@@ -17,7 +17,10 @@ sidebar <- dashboardSidebar(
     menuItem("Bar", tabName = "bars"),
     menuItem("Heatmap 2D Bin Counts", tabName = "heatmap_2d"),
     menuItem("Boxplot", tabName = "boxplot"),
-    menuItem("Contour", tabName = "contour")
+    menuItem("Contour", tabName = "contour"),
+    menuItem("Count Overlapping Points", tabName = "count_overlap"),
+    menuItem("Density", tabName = "density"),
+    menuItem("Density 2D", tabName = "density_2d")
     
   )
 )

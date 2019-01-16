@@ -19,7 +19,7 @@ server <- function(input, output, session) {
   # SCATTER GEOMS
   ###################
   output$scatter <- renderPlot({ scatter_plot(subtitle = "Scatter Plot") + theme_reactive()() })
-  output$facet_scatter <- renderPlot({ scatter_plot(subtitle = "Scatter Plot With Facet Grid") + facet_grid(vs ~ am) + theme_reactive()() })
+  output$scatter_facet <- renderPlot({ scatter_plot(subtitle = "Scatter Plot With Facet Grid") + facet_grid(vs ~ am) + theme_reactive()() })
   
   ###################
   # REFERENCE LINE GEOMS
@@ -27,20 +27,20 @@ server <- function(input, output, session) {
   # used in hline_facet, and hline_facet_mult_aes
   mean_wt <- data.frame(cyl = c(4, 6, 8), wt = c(2.28, 3.11, 4.00))
 
-  output$vline_1 <- renderPlot({ reference_line_plot() + geom_vline(xintercept = 5) + theme_reactive()() })
-  output$vline_2 <- renderPlot({ reference_line_plot() + geom_vline(xintercept = 1:5) + theme_reactive()() })
-  output$hline <- renderPlot({ reference_line_plot() + geom_hline(yintercept = 20) + theme_reactive()() })
-  output$abline_1 <- renderPlot({ reference_line_plot() + geom_abline() + theme_reactive()() })
-  output$abline_2 <- renderPlot({ reference_line_plot() + geom_abline(intercept = 20) + theme_reactive()() })
-  output$abline_3 <- renderPlot({
+  output$rl_vline_1 <- renderPlot({ reference_line_plot() + geom_vline(xintercept = 5) + theme_reactive()() })
+  output$rl_vline_2 <- renderPlot({ reference_line_plot() + geom_vline(xintercept = 1:5) + theme_reactive()() })
+  output$rl_hline <- renderPlot({ reference_line_plot() + geom_hline(yintercept = 20) + theme_reactive()() })
+  output$rl_abline_1 <- renderPlot({ reference_line_plot() + geom_abline() + theme_reactive()() })
+  output$rl_abline_2 <- renderPlot({ reference_line_plot() + geom_abline(intercept = 20) + theme_reactive()() })
+  output$rl_abline_3 <- renderPlot({
     mtcars_lm <- coef(lm(mpg ~ wt, data = mtcars2))
     reference_line_plot() + geom_abline(intercept = mtcars_lm[["(Intercept)"]], slope = mtcars_lm[["wt"]]) + theme_reactive()() })
-  output$smooth <- renderPlot({ reference_line_plot() + geom_smooth(method = "lm", se = FALSE) + theme_reactive()() })
-  output$hline_facet <- renderPlot({
+  output$rl_smooth <- renderPlot({ reference_line_plot() + geom_smooth(method = "lm", se = FALSE) + theme_reactive()() })
+  output$rl_hline_facet <- renderPlot({
     reference_line_plot(base_plot = FALSE) + facet_wrap(~ cyl) +
       geom_hline(aes(yintercept = wt), mean_wt) +
       theme_reactive()() })
-  output$hline_facet_mult_aes <- renderPlot({
+  output$rl_hline_facet_mult_aes <- renderPlot({
     reference_line_plot(base_plot = FALSE, include_aes = TRUE) +
       geom_hline(aes(yintercept = wt, colour = wt), mean_wt) +
       facet_wrap(~ cyl) +
@@ -59,18 +59,21 @@ server <- function(input, output, session) {
       coord_flip() +
       theme_reactive()() +
       theme(legend.position = "top") })
-  output$col_means <- renderPlot({
+  
+  output$bar_col_means <- renderPlot({
     df <- data.frame(trt = c("a", "b", "c"), outcome = c(2.3, 1.9, 3.2))
 
     ggplot(df, aes(trt, outcome)) +
       geom_col() +
       theme_reactive()()
   })
+  
   output$bar_continuous <- renderPlot({
     df <- data.frame(x = rep(c(2.9, 3.1, 4.5), c(5, 10, 4)))
     ggplot(df, aes(x)) + geom_bar() + theme_reactive()()
   })
-  output$hist <- renderPlot({
+  
+  output$bar_hist <- renderPlot({
     df <- data.frame(x = rep(c(2.9, 3.1, 4.5), c(5, 10, 4)))
     ggplot(df, aes(x)) + geom_histogram(binwidth = 0.5) + theme_reactive()()
   })
@@ -79,10 +82,10 @@ server <- function(input, output, session) {
   # ###################
   # # HEATMAP GEOMS
   # ###################
-  output$bin2d <- renderPlot({ heatmap_plot() + geom_bin2d() + theme_reactive()() })
-  output$bin2d_10 <- renderPlot({ heatmap_plot() + geom_bin2d(bins = 10) + theme_reactive()() })
-  output$bin2d_30 <- renderPlot({ heatmap_plot() + geom_bin2d(bins = 30) + theme_reactive()() })
-  output$bin2d_binwidtth <- renderPlot({ heatmap_plot() + geom_bin2d(binwidth = c(0.1, 0.1)) + theme_reactive()() })
+  output$bin_2d <- renderPlot({ heatmap_plot() + geom_bin2d() + theme_reactive()() })
+  output$bin_2d_10 <- renderPlot({ heatmap_plot() + geom_bin2d(bins = 10) + theme_reactive()() })
+  output$bin_2d_30 <- renderPlot({ heatmap_plot() + geom_bin2d(bins = 30) + theme_reactive()() })
+  output$bin_2d_binwidtth <- renderPlot({ heatmap_plot() + geom_bin2d(binwidth = c(0.1, 0.1)) + theme_reactive()() })
   
 
   # ###################
@@ -121,17 +124,61 @@ server <- function(input, output, session) {
   # # CONTOUR GEOMS
   # ###################
   output$contour <- renderPlot({ contour_plot() + geom_contour() + theme_reactive()() })
-  output$density_2d <- renderPlot({ contour_plot(density = FALSE) + geom_density_2d() + theme_reactive()() })
+  output$contour_density_2d <- renderPlot({ contour_plot(density = FALSE) + geom_density_2d() + theme_reactive()() })
   output$contour_bins_2 <- renderPlot({ contour_plot() + geom_contour(bins = 2) + theme_reactive()() })
   output$contour_bins_10 <- renderPlot({ contour_plot() + geom_contour(bins = 10) + theme_reactive()() })
   output$contour_binwidth_01 <- renderPlot({ contour_plot() + geom_contour(binwidth = 0.01) + theme_reactive()() })
   output$contour_binwidth_001 <- renderPlot({ contour_plot() + geom_contour(binwidth = 0.001) + theme_reactive()() })
   output$contour_aes_colour <- renderPlot({ contour_plot() + geom_contour(aes(colour = stat(level))) + theme_reactive()() })
   output$contour_colour_red <- renderPlot({ contour_plot() + geom_contour(colour = "red") + theme_reactive()() })
-  output$raster_with_contour <- renderPlot({ contour_plot() + geom_raster(aes(fill = density)) + geom_contour(colour = "white") + theme_reactive()() })
+  output$contour_raster_with_contour <- renderPlot({ contour_plot() + geom_raster(aes(fill = density)) + geom_contour(colour = "white") + theme_reactive()() })
+  
+  
+  # ###################
+  # # COUNT OVERLAP GEOMS
+  # ###################
+  output$count_overlap_point <- renderPlot({ count_overlap_plot() + geom_point() + theme_reactive()() })
+  output$count_overlap_count <- renderPlot({ count_overlap_plot() + geom_count() + theme_reactive()() })
+  output$count_overlap_scale_size_area <- renderPlot({ count_overlap_plot() + geom_count() + scale_size_area() + theme_reactive()() })
+  output$count_overlap_count_aes <- renderPlot({ count_overlap_plot(use_mpg = FALSE) + geom_count(aes(size = stat(prop))) + theme_reactive()() })
+  output$count_overlap_count_aes_scale_size <- renderPlot({ count_overlap_plot(use_mpg = FALSE) + geom_count(aes(size = stat(prop), group = 1)) + scale_size_area(max_size = 10) + theme_reactive()() })
+  output$count_overlap_count_aes_scale_size_group_cut <- renderPlot({ count_overlap_plot(use_mpg = FALSE) + geom_count(aes(size = stat(prop), group = cut)) + scale_size_area(max_size = 10) + theme_reactive()() })
+  output$count_overlap_count_aes_scale_size_group_clarity <- renderPlot({ count_overlap_plot(use_mpg = FALSE) + geom_count(aes(size = stat(prop), group = clarity)) + scale_size_area(max_size = 10) + theme_reactive()() })
+  
+  
+  # ###################
+  # # DENSITY OVERLAP GEOMS
+  # ###################
+  output$density <- renderPlot({ density_plot() + geom_density() + theme_reactive()() })
+  output$density_adjust_1_5 <- renderPlot({ density_plot() + geom_density(adjust = 1/5) + theme_reactive()() })
+  output$density_adjust_5 <- renderPlot({ density_plot() + geom_density(adjust = 5) + theme_reactive()() })
+  output$density_xlim <- renderPlot({ density_plot('depth', colour = 'cut') +  geom_density() + xlim(55, 70) + theme_reactive()() })
+  output$density_xlim_alpha <- renderPlot({ density_plot('depth', fill = 'cut', colour = 'cut') + geom_density(alpha = 0.1) + xlim(55, 70) + theme_reactive()() })
+  output$density_stacked <- renderPlot({ density_plot(fill = 'cut') + geom_density(position = "stack") + theme_reactive()() })
+  output$density_stacked_count <- renderPlot({ density_plot_advanced() + geom_density(position = "stack") + theme_reactive()() })
+  output$density_filled <- renderPlot({ density_plot_advanced() + geom_density(position = "fill") + theme_reactive()() })
+  
+
+  # ###################
+  # # DENSITY2D OVERLAP GEOMS
+  # ###################
+  output$density_2d <- renderPlot({ density_2d_faithful_plot() + geom_density_2d() + theme_reactive()() })
+  output$density_2d_poly <- renderPlot({ density_2d_faithful_plot() + stat_density_2d(aes(fill = stat(level)), geom = "polygon") + theme_reactive()() })
+  
+  output$density_2d_aes_colour <- renderPlot({ density_2d_diamonds_plot() + geom_density_2d(aes(color = cut)) + theme_reactive()() })
+  output$density_2d_poly_facet <- renderPlot({ density_2d_diamonds_plot() + stat_density_2d(aes(fill = stat(level)), geom = "polygon") + facet_grid(. ~ cut) + scale_fill_viridis_c() + theme_reactive()() })
+  output$density_2d_poly_facet_per <- renderPlot({ density_2d_diamonds_plot() + stat_density_2d(aes(fill = stat(nlevel)), geom = "polygon") + facet_grid(. ~ cut) + scale_fill_viridis_c() + theme_reactive()() })
+  output$density_2d_raster <- renderPlot({ density_2d_diamonds_plot() + stat_density_2d(geom = "raster", aes(fill = stat(density)), contour = FALSE) + theme_reactive()() })
+  output$density_2d_point <- renderPlot({ density_2d_faithful_plot() + stat_density_2d(geom = "point", aes(size = stat(density)), n = 20, contour = FALSE) + theme_reactive()() })
+  
+  
+  
+  
+  
+  
+  
   
 }
-
 
 
 

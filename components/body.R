@@ -11,22 +11,22 @@ body <- dashboardBody(
             h2("ggplot Example Scatter Plots"),
             fluidRow(
               box( plotOutput("scatter") ),
-              box( plotOutput("facet_scatter"))
+              box( plotOutput("scatter_facet"))
             )  
     ),
     
     tabItem(tabName = "reference_lines",
             h2("ggplot Example Reference Lines"),
             fluidRow(
-              box( plotOutput("vline_1") ),
-              box( plotOutput("vline_2") ),
-              box( plotOutput("hline") ),
-              box( plotOutput("abline_1") ),
-              box( plotOutput("abline_2") ),
-              box( plotOutput("abline_3") ),
-              box( plotOutput("smooth") ),
-              box( plotOutput("hline_facet") ),
-              box( plotOutput("hline_facet_mult_aes") )
+              box( plotOutput("rl_vline_1") ),
+              box( plotOutput("rl_vline_2") ),
+              box( plotOutput("rl_hline") ),
+              box( plotOutput("rl_abline_1") ),
+              box( plotOutput("rl_abline_2") ),
+              box( plotOutput("rl_abline_3") ),
+              box( plotOutput("rl_smooth") ),
+              box( plotOutput("rl_hline_facet") ),
+              box( plotOutput("rl_hline_facet_mult_aes") )
             )
     ),
 
@@ -37,19 +37,19 @@ body <- dashboardBody(
               box( plotOutput("bar_weight_aes") ),
               box( plotOutput("bar_fill_aes") ),
               box( plotOutput("bar_position") ),
-              box( plotOutput("col_means") ),
+              box( plotOutput("bar_col_means") ),
               box( plotOutput("bar_continuous") ),
-              box( plotOutput("hist") )
+              box( plotOutput("bar_hist") )
             )
     ),
     
     tabItem(tabName = "heatmap_2d",
             h2("ggplot Example Heatmaps"),
             fluidRow(
-              box( plotOutput("bin2d") ),
-              box( plotOutput("bin2d_10") ),
-              box( plotOutput("bin2d_30") ),
-              box( plotOutput("bin2d_binwidtth") )
+              box( plotOutput("bin_2d") ),
+              box( plotOutput("bin_2d_10") ),
+              box( plotOutput("bin_2d_30") ),
+              box( plotOutput("bin_2d_binwidtth") )
             )
     ),
     
@@ -75,14 +75,54 @@ body <- dashboardBody(
             h2("ggplot Example 2d contours of a 3d Surface"),
             fluidRow(
               box( plotOutput("contour") ),
-              box( plotOutput("density_2d") ),
+              box( plotOutput("contour_density_2d") ),
               box( plotOutput("contour_bins_2") ),
               box( plotOutput("contour_bins_10") ),
               box( plotOutput("contour_binwidth_01") ),
               box( plotOutput("contour_binwidth_001") ),
               box( plotOutput("contour_aes_colour") ),
               box( plotOutput("contour_colour_red") ),
-              box( plotOutput("raster_with_contour") )
+              box( plotOutput("contour_raster_with_contour") )
+            )
+    ),
+    
+    tabItem(tabName = "count_overlap",
+            h2("ggplot Example Count Overlapping Points"),
+            fluidRow(
+              box( plotOutput("count_overlap_point") ),
+              box( plotOutput("count_overlap_count") ),
+              box( plotOutput("count_overlap_scale_size_area") ),
+              box( plotOutput("count_overlap_count_aes") ),
+              box( plotOutput("count_overlap_count_aes_scale_size") ),
+              box( plotOutput("count_overlap_count_aes_scale_size_group_cut") ),
+              box( plotOutput("count_overlap_count_aes_scale_size_group_clarity") )
+            )
+    ),
+    
+    tabItem(tabName = "density",
+            h2("ggplot Example Smoothed Density Estimates"),
+            fluidRow(
+              box( plotOutput("density") ),
+              box( plotOutput("density_adjust_1_5") ),
+              box( plotOutput("density_adjust_5") ),
+              box( plotOutput("density_xlim") ),
+              box( plotOutput("density_xlim_alpha") ),
+              box( plotOutput("density_stacked") ),
+              box( plotOutput("density_stacked_count") ),
+              box( plotOutput("density_filled") )
+            )
+    ),
+    
+    tabItem(tabName = "density_2d",
+            h2("ggplot Example Contours of a 2d density estimate"),
+            fluidRow(
+              box( plotOutput("density_2d") ),
+              box( plotOutput("density_2d_poly") ),
+              box( plotOutput("density_2d_aes_colour") ),
+              box( plotOutput("density_2d_poly_facet") ),
+              box( plotOutput("density_2d_poly_facet_per") ),
+              box( plotOutput("density_2d_raster") ),
+              box( plotOutput("density_2d_point") )
             )
     )
   )

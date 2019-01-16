@@ -70,6 +70,41 @@ contour_plot <- function(density = TRUE) {
 }
 
 
+count_overlap_plot <- function(use_mpg = TRUE) {
+  if (use_mpg) {
+    return(ggplot(mpg, aes(cty, hwy)))
+  } else{
+    return(ggplot(diamonds, aes(x = cut, y = clarity)))
+  }
+}
+
+
+density_plot <- function(col = 'carat', ...) {
+  return(ggplot(diamonds, aes_string(col, ...)))
+}
+
+density_plot_advanced <- function() {
+  return(ggplot(diamonds, aes(carat, stat(count), fill = cut)))
+}
+
+
+density_2d_faithful_plot <- function() {
+  ggplot(faithful, aes(x = eruptions, y = waiting)) +
+    geom_point() +
+    xlim(0.5, 6) +
+    ylim(40, 110)    
+}
+
+
+density_2d_diamonds_plot <- function() {
+  set.seed(4393)
+  dsmall <- diamonds[sample(nrow(diamonds), 1000), ]
+  
+  ggplot(dsmall, aes(x, y))
+}
+
+
+
 
 
 
