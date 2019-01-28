@@ -124,6 +124,27 @@ body <- dashboardBody(
               box( plotOutput("density_2d_raster") ),
               box( plotOutput("density_2d_point") )
             )
+    ),
+    
+    tabItem(tabName = "dotplot",
+            h2("ggplot Example Dot Plot"),
+            fluidRow(
+              box( plotOutput("dotplot") ),
+              box( plotOutput("dotplot_binwidth_1_5") ),
+              box( plotOutput("dotplot_method_histodot") ),
+              box( plotOutput("dotplot_stackdir_center") ),
+              box( plotOutput("dotplot_stackdir_centerwhole") ),
+              box( plotOutput("dotplot_scale_y") ),
+              box( plotOutput("dotplot_stack_ratio_7") ),
+              box( plotOutput("dotplot_dotsize_1_25") ),
+              box( plotOutput("dotplot_binaxis_y") ),
+              box( plotOutput("dotplot_binaxis_y_factor") ),
+              box( plotOutput("dotplot_binaxis_y_factor_centerwhole") ),
+              box( plotOutput("dotplot_factor_center_dodge") ),
+              box( plotOutput("dotplot_factor_center_binpositions") ),
+              box( plotOutput("dotplot_factor_stackgroups_histdot") ),
+              box( plotOutput("dotplot_binaxis_y_factor_histodot") )
+            )
     )
   )
 )

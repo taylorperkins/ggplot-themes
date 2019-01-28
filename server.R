@@ -147,7 +147,7 @@ server <- function(input, output, session) {
   
   
   # ###################
-  # # DENSITY OVERLAP GEOMS
+  # # DENSITY GEOMS
   # ###################
   output$density <- renderPlot({ density_plot() + geom_density() + theme_reactive()() })
   output$density_adjust_1_5 <- renderPlot({ density_plot() + geom_density(adjust = 1/5) + theme_reactive()() })
@@ -160,7 +160,7 @@ server <- function(input, output, session) {
   
 
   # ###################
-  # # DENSITY2D OVERLAP GEOMS
+  # # DENSITY2D GEOMS
   # ###################
   output$density_2d <- renderPlot({ density_2d_faithful_plot() + geom_density_2d() + theme_reactive()() })
   output$density_2d_poly <- renderPlot({ density_2d_faithful_plot() + stat_density_2d(aes(fill = stat(level)), geom = "polygon") + theme_reactive()() })
@@ -172,11 +172,40 @@ server <- function(input, output, session) {
   output$density_2d_point <- renderPlot({ density_2d_faithful_plot() + stat_density_2d(geom = "point", aes(size = stat(density)), n = 20, contour = FALSE) + theme_reactive()() })
   
   
-  
-  
-  
-  
-  
+  ###################
+  # DOTPLOT GEOMS
+  ###################
+  output$dotplot <- renderPlot({ dotplot_plot() + geom_dotplot() + theme_reactive()() })
+  output$dotplot_binwidth_1_5 <- renderPlot({ dotplot_plot() + geom_dotplot(binwidth = 1.5) + theme_reactive()() })
+  output$dotplot_method_histodot <- renderPlot({ dotplot_plot() + geom_dotplot(method="histodot", binwidth = 1.5) + theme_reactive()() })
+  output$dotplot_stackdir_center <- renderPlot({ dotplot_plot() + geom_dotplot(binwidth = 1.5, stackdir = "center") + theme_reactive()() })
+  output$dotplot_stackdir_centerwhole <- renderPlot({ dotplot_plot() + geom_dotplot(binwidth = 1.5, stackdir = "centerwhole") + theme_reactive()() })
+  output$dotplot_scale_y <- renderPlot({ dotplot_plot() + geom_dotplot(binwidth = 1.5) + scale_y_continuous(NULL, breaks = NULL) + theme_reactive()() })
+  output$dotplot_stack_ratio_7 <- renderPlot({ dotplot_plot() + geom_dotplot(binwidth = 1.5, stackratio = .7) + theme_reactive()() })
+  output$dotplot_dotsize_1_25 <- renderPlot({ dotplot_plot() + geom_dotplot(binwidth = 1.5, dotsize = 1.25) + theme_reactive()() })
+  output$dotplot_binaxis_y <- renderPlot({ dotplot_plot(reverse = TRUE) + geom_dotplot(binaxis = "y", stackdir = "center") + theme_reactive()() })
+  output$dotplot_binaxis_y_factor <- renderPlot({ dotplot_plot(as_factor = TRUE) + geom_dotplot(binaxis = "y", stackdir = "center") + theme_reactive()() })
+  output$dotplot_binaxis_y_factor_centerwhole <- renderPlot({ dotplot_plot(as_factor = TRUE) + geom_dotplot(binaxis = "y", stackdir = "centerwhole") + theme_reactive()() })
+  output$dotplot_factor_center_dodge <- renderPlot({ 
+    ggplot(mtcars, aes(x = factor(vs), fill = factor(cyl), y = mpg)) +
+      geom_dotplot(binaxis = "y", stackdir = "center", position = "dodge") +
+      theme_reactive()()
+  })
+  output$dotplot_factor_center_binpositions <- renderPlot({ 
+    ggplot(mtcars, aes(x = factor(am), y = mpg)) +
+      geom_dotplot(binaxis = "y", stackdir = "center", binpositions="all") +
+      theme_reactive()()
+  })
+  output$dotplot_factor_stackgroups_histdot <- renderPlot({ 
+    ggplot(mtcars, aes(x = mpg, fill = factor(cyl))) +
+      geom_dotplot(stackgroups = TRUE, binwidth = 1, method = "histodot") +
+      theme_reactive()()
+  })
+  output$dotplot_binaxis_y_factor_histodot <- renderPlot({ 
+    ggplot(mtcars, aes(x = 1, y = mpg, fill = factor(cyl))) +
+      geom_dotplot(binaxis = "y", stackgroups = TRUE, binwidth = 1, method = "histodot") +
+      theme_reactive()()
+  })
   
 }
 

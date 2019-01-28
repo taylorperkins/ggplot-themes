@@ -20,7 +20,8 @@ sidebar <- dashboardSidebar(
     menuItem("Contour", tabName = "contour"),
     menuItem("Count Overlapping Points", tabName = "count_overlap"),
     menuItem("Density", tabName = "density"),
-    menuItem("Density 2D", tabName = "density_2d")
+    menuItem("Density 2D", tabName = "density_2d"),
+    menuItem("Dotplot", tabName = "dotplot")
     
   )
 )
