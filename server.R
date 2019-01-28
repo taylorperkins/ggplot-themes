@@ -207,6 +207,12 @@ server <- function(input, output, session) {
       theme_reactive()()
   })
   
+  
+  # ###################
+  # # DENSITY2D GEOMS
+  # ###################
+  output$density_2d <- renderPlot({ density_2d_faithful_plot() + geom_density_2d() + theme_reactive()() })
+  
 }
 
 
