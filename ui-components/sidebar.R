@@ -21,7 +21,9 @@ sidebar <- dashboardSidebar(
     menuItem("Count Overlapping Points", tabName = "count_overlap"),
     menuItem("Density", tabName = "density"),
     menuItem("Density 2D", tabName = "density_2d"),
-    menuItem("Dotplot", tabName = "dotplot")
+    menuItem("Dotplot", tabName = "dotplot"),
+    menuItem("Error Bars", tabName = "error_bar"),
+    menuItem("Hex 2D Bins", tabName = "hex")
     
   )
 )

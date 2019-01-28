@@ -145,6 +145,25 @@ body <- dashboardBody(
               box( plotOutput("dotplot_factor_stackgroups_histdot") ),
               box( plotOutput("dotplot_binaxis_y_factor_histodot") )
             )
+    ),
+    
+    tabItem(tabName = "error_bar",
+            h2("ggplot Example Error Bars"),
+            fluidRow(
+              box( plotOutput("error_bar") ),
+              box( plotOutput("error_bar_with_height") )
+            )
+    ),
+    
+    tabItem(tabName = "hex",
+            h2("ggplot Example Hex 2d Bin Counts"),
+            fluidRow(
+              box( plotOutput("hex") ),
+              box( plotOutput("hex_bins_10") ),
+              box( plotOutput("hex_bins_30") ),
+              box( plotOutput("hex_binwidth_1000") ),
+              box( plotOutput("hex_binwidth_500") )
+            )
     )
   )
 )
