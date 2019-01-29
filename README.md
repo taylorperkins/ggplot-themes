@@ -1,18 +1,23 @@
-# Shiny-Dashboard-Template
-I have seen a ton of examples for either [Shiny](https://shiny.rstudio.com/) or [Shiny Dashboard](https://rstudio.github.io/shinydashboard/) apps 
-with all of the code living in either one file, or two files (ui and server).
-I personally like to compartmentalize my code in a way that's manageable, and easy to break out or re-use.
+# ggplot Themes
+Recently I have been inspired to do more work with R, specifically ggplot.
+There have been a few times where I would be working on a project, and my visualizations are not cohesive.
+This is partially due to the fact that either I forget what themes are available..
+Or, it is because I have a custom theme that isnt being applied to all of my visualizations.
 
-**With that being said**, I created this repo to serve as a template for Shiny Dashboard apps. Really basic, nothing crazy, simplistic file structure. If there is anything I missed, feel free to create a pr :) Like I said, this is a template/boilerplate. 
+This shiny app aims to allow the user to see what what themes are available by default through ggplot while pairing them with any available geom.
+Additionally, the user should be able to upload their own ggplot theme and test it out against different geoms to see if it can handle all edge cases while being cohesive.
 
-### Get It Running
+Checkout the app [here](https://taylorperkins.shinyapps.io/ggplot-themes/)!
+
+### Get It Running Locally
 1. Make sure you have [R](https://cran.r-project.org/doc/manuals/r-release/R-admin.html) installed *(Pretty important step in this process lol)*
+2. Clone this repo, and open the project in RStudio.
+3. You will need to install a few packages. 
+```R
+install.packages("shiny", "shinydashboard", "shinyalert", "ggplot2")
+```
+4. Move on over to `app.R` and click the `Run App` button in RStudio. 
+This should open the app and get ya started!
 
-2. Through your favorite R interface, be sure you `install.packages` for both shiny and shinydashboard.
 
-3. Clone this repo
-
-4. You should be good to go!! Make sure your cwd is set to the base level of this repo. run `shinyApp()` in your console, or click the `Run App` button in RStudio.
-
-
-Good luck, and happy coding :) 
+#### Good luck, and happy coding :) 
