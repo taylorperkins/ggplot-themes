@@ -9,6 +9,7 @@ library(shinydashboard)
 library(shinyalert)
 
 library(ggplot2)
+library(hexbin)
 
 
 ###################

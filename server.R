@@ -25,6 +25,11 @@ server <- function(input, output, session) {
   ###################
   theme_reactive <- reactiveVal(value = theme_classic)
   
+  ###################
+  # LISTEN TO GEOM SELECTION, PASSING IN THE SELECTED GEOM AS ARG
+  ###################
+  geom_viz_reactive <- eventReactive(input$geom_selection, { dget('./ui-components/geom_body_templates.R')(input$geom_selection) })
+  
   # doing it this way also allows for the theme to be changed on separate events,
   # such as the file upload. Not just the theme dropdown.
   observeEvent(input$theme, {
@@ -75,6 +80,12 @@ server <- function(input, output, session) {
       
     ))
   })
+  
+  
+  ###################
+  # WAIT FOR SELECTION OF GEOM, THEN POPULATE THE BODY
+  ###################
+  output$geom_viz <- renderUI({ geom_viz_reactive() })
   
   
   ###################
