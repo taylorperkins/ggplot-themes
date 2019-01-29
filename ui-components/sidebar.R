@@ -3,15 +3,19 @@
 # 
 # Create the sidebar menu options for the ui.
 ###################
+
+
 sidebar <- dashboardSidebar(
   sidebarMenu(
     
+    # Choose from list of default themes specified in global.R
     selectInput(
       "theme",
       label = 'Choose from the default themes.',
       choices = themes,
       selected = 'theme_classic'),
     
+    # Optionally.. Upload your own theme from .Rds file
     fileInput(
       "theme_upload", 
       span(
@@ -26,6 +30,7 @@ sidebar <- dashboardSidebar(
       multiple = FALSE,
       accept = c(".Rds")),
     
+    # All available geoms.. Would love to convert this to a dropdown.
     menuItem("Scatter", tabName = "scatters"),
     menuItem("Reference Lines", tabName = "reference_lines"),
     menuItem("Bar", tabName = "bars"),

@@ -4,9 +4,7 @@
 # For all your server needs..
 ###################
 
-# all server imports 
-
-# GEOMS
+# GEOM SERVERS
 source('./server-components/geoms/scatter.R')
 source('./server-components/geoms/reference_line.R')
 source('./server-components/geoms/bar.R')
@@ -22,11 +20,6 @@ source('./server-components/geoms/hex.R')
 
 
 server <- function(input, output, session) {
-  ###################
-  # LISTEN TO THEME SELECTION AND GENERATE PLOT
-  ###################
-  # plotReactive <- eventReactive(input$geom, { getFunction(paste0(input$geom, '_plot')) })
-  
   ###################
   # LISTEN TO THEME SELECTION, WITH DEFAULT AS CLASSIC
   ###################
@@ -50,15 +43,15 @@ server <- function(input, output, session) {
     )
     
     if (is.function(custom_theme) && is.theme(custom_theme())) {
-      print(input$theme_upload$datapath)
       theme_reactive <- theme_reactive(custom_theme)
     } else {
       print("Is not a theme..")
     }
   })
   
+  # This guy is the modal that pops up next to the file input to upload your own theme.
+  # It is aiming to walk the user through the steps to begin testing outt their own themes! 
   observeEvent(input$upload_what_is_this, {
-    print("clicking..")
     showModal(modalDialog(
       title = tags$h3("How does one upload a theme?!?", tags$br(), "Well, let me show you.."),
       fluidRow(
@@ -66,73 +59,37 @@ server <- function(input, output, session) {
           tags$li("First.. Create a test-y file."),
           tags$li("Second.. Paste in this supa cool code!"),
           tags$blockquote(
-            p(tags$code("library(ggthemes)")),
-            p(tags$code("my_theme <- theme_tufte  # or.. you can build your own here!")),
-            p(tags$code("saveRDS(my_theme, '<some file>.Rds')"))
+            p("library(ggthemes)"),
+            p("my_theme <- theme_tufte  # or.. you can build your own here!"),
+            p("saveRDS(my_theme, '<some file>.Rds')")
           ),
           tags$li("Then.. Select that file in the dropdown! You should be good to go :)")
         ),
-        p("Behind the scenes.. Shiny needs to assert two things. One, that the saved value is callable (a function). Two, that it is an instance of a ggplot theme. Otherwise, it will fail.")
+        column(
+          width = 10,
+          offset = 1,
+          
+          p("Behind the scenes.. Shiny needs to assert two things. One, that the saved value is callable (a function). Two, that it is an instance of a ggplot theme. Otherwise, it will fail.")
+        )
       )
       
     ))
   })
   
-  # scatter geoms
-  scatter_server(input, output, session, theme_reactive)
   
-  # reference line geoms
+  ###################
+  # ALL GEOM SERVERS (#so-cute)
+  ###################
+  scatter_server(input, output, session, theme_reactive)
   reference_line_server(input, output, session, theme_reactive)
-
-  # bar geoms
   bar_server(input, output, session, theme_reactive)
-
-  # heatmap geoms
   heatmap_server(input, output, session, theme_reactive)
-
-  # boxplot geoms
   boxplot_server(input, output, session, theme_reactive)
-
-  # contour geoms
   contour_server(input, output, session, theme_reactive)
-
-  # count overlap geoms
   count_overlap_server(input, output, session, theme_reactive)
-
-  # density geoms
   density_server(input, output, session, theme_reactive)
-
-  # density2d geoms
   density2d_server(input, output, session, theme_reactive)
-
-  # dotplot geoms
   dotplot_server(input, output, session, theme_reactive)
-
-  # error bar geoms
   error_bar_server(input, output, session, theme_reactive)
-
-  # hex geoms
   hex_server(input, output, session, theme_reactive)
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

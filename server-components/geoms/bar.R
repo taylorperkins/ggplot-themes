@@ -1,14 +1,18 @@
 # ###################
 # # BAR GEOMS
 # ###################
+
+
 bar_server <- function(input, output, session, theme_reactive) {
   # https://ggplot2.tidyverse.org/reference/geom_bar.html
   
-  output$bar <- renderPlot({ bar_plot() + geom_bar() + theme_reactive()() })
-  output$bar_weight_aes <- renderPlot({ bar_plot() + geom_bar(aes(weight = displ)) + theme_reactive()() })
-  output$bar_fill_aes <- renderPlot({ bar_plot() + geom_bar(aes(fill = drv)) + theme_reactive()() })
+  base_plot <- dget("./plots/geom__bar.R")
+  
+  output$bar <- renderPlot({ base_plot() + geom_bar() + theme_reactive()() })
+  output$bar_weight_aes <- renderPlot({ base_plot() + geom_bar(aes(weight = displ)) + theme_reactive()() })
+  output$bar_fill_aes <- renderPlot({ base_plot() + geom_bar(aes(fill = drv)) + theme_reactive()() })
   output$bar_position <- renderPlot({
-    bar_plot() +
+    base_plot() +
       geom_bar(aes(fill = drv), position = position_stack(reverse = TRUE)) +
       coord_flip() +
       theme_reactive()() +

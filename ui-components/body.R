@@ -5,6 +5,8 @@
 # If you had multiple tabs, you could split those into their own
 # components as well.
 ###################
+
+
 body <- dashboardBody(
   tabItems(
     tabItem(tabName = "scatters",

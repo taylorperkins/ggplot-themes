@@ -3,6 +3,7 @@
 # 
 # Anything you want shared between your ui and server, define here.
 ###################
+
 library(shiny)
 library(shinydashboard)
 library(shinyalert)
@@ -11,19 +12,13 @@ library(ggplot2)
 
 
 ###################
-# DATASETS USED FOR PLOTS
+# DATASETS USED FOR PLOTS (used in misc. servers)
 ###################
 source('./datasets.R')
 
 
 ###################
-# PLOTS FOR SUPPORTING SELECTED GEOMS
-###################
-source('./plots.R')
-
-
-###################
-# ALL CURRENT GGPLOT THEMES
+# ALL CURRENT GGPLOT THEMES (used in UI)
 ###################
 themes <- c(
   'theme_gray',
