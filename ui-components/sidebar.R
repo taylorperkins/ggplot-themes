@@ -8,9 +8,23 @@ sidebar <- dashboardSidebar(
     
     selectInput(
       "theme",
-      label = 'Choose a theme',
+      label = 'Choose from the default themes.',
       choices = themes,
       selected = 'theme_classic'),
+    
+    fileInput(
+      "theme_upload", 
+      span(
+        "Or.. Upload your own.",
+        actionLink(
+          "upload_what_is_this",
+          label = "",
+          icon = icon("question-circle"),
+          style = "display: inline-block;"
+        )
+      ),
+      multiple = FALSE,
+      accept = c(".Rds")),
     
     menuItem("Scatter", tabName = "scatters"),
     menuItem("Reference Lines", tabName = "reference_lines"),

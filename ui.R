@@ -10,6 +10,8 @@ source('./ui-components/body.R')
 
 
 ui <- dashboardPage(
+  useShinyalert(),
+  
   header = header,
   sidebar =  sidebar,
   body = body)
