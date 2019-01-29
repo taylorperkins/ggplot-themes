@@ -9,6 +9,7 @@ library(shinydashboard)
 library(shinyalert)
 
 library(ggplot2)
+library(ggthemes)
 library(hexbin)
 
 
@@ -22,6 +23,7 @@ source('./datasets.R')
 # ALL CURRENT GGPLOT THEMES (used in UI)
 ###################
 themes <- c(
+  # default ggplot themes
   'theme_gray',
   'theme_bw',
   'theme_linedraw',
@@ -29,7 +31,23 @@ themes <- c(
   'theme_dark',
   'theme_minimal',
   'theme_classic',
-  'theme_void')
+  'theme_void',
+  
+  # ggthemes
+  'theme_wsj',
+  'theme_tufte',
+  'theme_stata',
+  'theme_solid',
+  'theme_solarized',
+  'theme_map',
+  'theme_igray',
+  'theme_hc',
+  'theme_gdocs',
+  'theme_fivethirtyeight',
+  'theme_few',
+  'theme_excel',
+  'theme_economist',
+  'theme_calc')
 
 
 ###################
