@@ -20,4 +20,13 @@ install.packages("shiny", "shinydashboard", "shinyalert", "ggplot2")
 This should open the app and get ya started!
 
 
-#### Good luck, and happy coding :) 
+### If you didn't notice..
+This app is a *_WIP_*!!!
+Not yet finished, may never be. 
+If you find this and are interested in contributing, reach out to me and I'll hook ya up!
+The structure is fairly straightforward, and would be easy enough to jump in.
+
+Otherwise.. 
+Submit an issue and I'll see if it can get put in!
+
+### _Thanks!_
