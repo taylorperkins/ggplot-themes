@@ -20,20 +20,25 @@ source('./server-components/geoms/hex.R')
 
 
 server <- function(input, output, session) {
-  ###################
-  # LISTEN TO THEME SELECTION, WITH DEFAULT AS CLASSIC
-  ###################
-  theme_reactive <- reactiveVal(value = theme_classic)
   
   ###################
   # LISTEN TO GEOM SELECTION, PASSING IN THE SELECTED GEOM AS ARG
   ###################
   geom_viz_reactive <- eventReactive(input$geom_selection, { dget('./ui-components/geom_body_templates.R')(input$geom_selection) })
+
+  # wait for the selection of the geom, then populate the body
+  output$geom_viz <- renderUI({ geom_viz_reactive() })
+  
+  
+  ###################
+  # LISTEN TO THEME SELECTION, WITH DEFAULT AS CLASSIC
+  ###################
+  theme_reactive <- reactiveVal(value = theme_classic)
   
   # doing it this way also allows for the theme to be changed on separate events,
   # such as the file upload. Not just the theme dropdown.
   observeEvent(input$theme, {
-    theme_reactive <- theme_reactive(getFunction(input$theme))
+    theme_reactive <- theme_reactive(themes[[input$theme]])
   })
   
   observeEvent(input$theme_upload, {
@@ -53,6 +58,20 @@ server <- function(input, output, session) {
       print("Is not a theme..")
     }
   })
+  
+  
+  ###################
+  # LISTEN TO THEME ACTION SELECTION, WITH DEFAULT AS DEFAULT THEMES VIEW
+  ###################
+  theme_action_reactive <- reactiveVal(val = default_theme_render())
+  
+  # Update the theme_action_reactive value when the sidebar theme action buttons are clicked.
+  observeEvent(input$default_theme_action, { theme_action_reactive(default_theme_render()) })
+  observeEvent(input$upload_theme_action, { theme_action_reactive(upload_theme_render()) })
+  
+  # wait for selection of the action, then populate the sidebar
+  output$theme_action <- renderUI({ theme_action_reactive() })
+  
   
   # This guy is the modal that pops up next to the file input to upload your own theme.
   # It is aiming to walk the user through the steps to begin testing outt their own themes! 
@@ -80,12 +99,6 @@ server <- function(input, output, session) {
       
     ))
   })
-  
-  
-  ###################
-  # WAIT FOR SELECTION OF GEOM, THEN POPULATE THE BODY
-  ###################
-  output$geom_viz <- renderUI({ geom_viz_reactive() })
   
   
   ###################

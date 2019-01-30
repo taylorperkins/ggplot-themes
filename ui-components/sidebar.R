@@ -9,45 +9,13 @@ sidebar <- dashboardSidebar(
   sidebarMenu(
     
     ###################
-    # THEMES
-    # 
-    # Choose from list of default themes specified in global.R
-    ###################
-    selectInput(
-      "theme",
-      label = 'Choose from the default themes.',
-      choices = themes,
-      selected = 'theme_classic'),
-    
-
-    ###################
-    # CUSTOM THEME (OPTIONAL)
-    # 
-    # Optionally.. Upload your own theme from .Rds file
-    ###################
-    fileInput(
-      "theme_upload", 
-      span(
-        "Or.. Upload your own.",
-        actionLink(
-          "upload_what_is_this",
-          label = "",
-          icon = icon("question-circle"),
-          style = "display: inline-block;"
-        )
-      ),
-      multiple = FALSE,
-      accept = c(".Rds")),
-    
-    
-    ###################
     # GEOM
     # 
     # Select from the list of available geoms
     ###################
     selectInput(
       "geom_selection",
-      label = 'Finally.. Select a geom to test against.',
+      label = 'First.. Select a geom to test against.',
       choices = c(
         "scatters",
         "reference_lines",
@@ -62,6 +30,25 @@ sidebar <- dashboardSidebar(
         "error_bar",
         "hex"
       ),
-      selected = 'scatters')
+      selected = 'scatters'),
+    
+    
+    ###################
+    # THEME SELECTOR OPTIONS
+    # 
+    # These action group butttons determine the layout for the next filters that will be shown.
+    # You can either choose from defaults, or upload your own.
+    ###################
+    actionGroupButtons(
+      status = "primary",
+      size = 'sm',
+      
+      inputIds = c("default_theme_action", "upload_theme_action"),
+      labels = list("Defaults", "Upload")
+    ),
+    
+    # this is either a dropdown for default themes.. Or an option to upload a custom theme.    
+    uiOutput("theme_action")
+
   )
 )
