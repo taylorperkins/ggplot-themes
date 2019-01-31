@@ -230,5 +230,24 @@ function(selected_geom) {
     )
     
     
+  } else if (selected_geom == 'histogram') {
+    return(
+      box(
+        width = 12,
+        
+        h2("ggplot Example Histograms and Frequency Polygons"),
+        fluidRow(
+          box( width = 12, plotOutput("histogram") ),
+          box( width = 12, plotOutput("histogram_binwidth_01") ),
+          box( width = 12, plotOutput("histogram_bins_200") ),
+          box( width = 12, plotOutput("histogram_fill_binwidth_500") ),
+          box( width = 12, plotOutput("histogram_colour_binwidth_500") ),
+          box( width = 12, plotOutput("histogram_stat_density") )
+        )
+      )
+    )
+    
+
   }
+  
 }

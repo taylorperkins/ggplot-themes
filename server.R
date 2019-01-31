@@ -17,6 +17,7 @@ source('./server-components/geoms/density2d.R')
 source('./server-components/geoms/dotplot.R')
 source('./server-components/geoms/error_bars.R')
 source('./server-components/geoms/hex.R')
+source('./server-components/geoms/histogram.R')
 
 
 server <- function(input, output, session) {
@@ -116,4 +117,5 @@ server <- function(input, output, session) {
   dotplot_server(input, output, session, theme_reactive)
   error_bar_server(input, output, session, theme_reactive)
   hex_server(input, output, session, theme_reactive)
+  histogram_server(input, output, session, theme_reactive)
 }

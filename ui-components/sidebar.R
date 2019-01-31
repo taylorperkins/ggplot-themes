@@ -28,7 +28,8 @@ sidebar <- dashboardSidebar(
         "density_2d",
         "dotplot",
         "error_bar",
-        "hex"
+        "hex",
+        "histogram"
       ),
       selected = 'scatters'),
     
