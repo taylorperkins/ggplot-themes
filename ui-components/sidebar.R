@@ -30,7 +30,8 @@ sidebar <- dashboardSidebar(
         "error_bar",
         "hex",
         "histogram",
-        "jitter"
+        "jitter",
+        "vertical_intervals"
       ),
       selected = 'scatters'),
     

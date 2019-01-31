@@ -264,6 +264,26 @@ function(selected_geom) {
     )
     
     
+  } else if (selected_geom == 'vertical_intervals') {
+    return(
+      box(
+        width = 12,
+        
+        h2("ggplot Example Vertical Intervals: (lines, crossbars & errorbars)"),
+        fluidRow(
+          box( width = 12, plotOutput("linerange") ),
+          box( width = 12, plotOutput("pointrange") ),
+          box( width = 12, plotOutput("crossbar") ),
+          box( width = 12, plotOutput("errorbar") ),
+          box( width = 12, plotOutput("line_errorbar") ),
+          box( width = 12, plotOutput("dodge_error") ),
+          box( width = 12, plotOutput("dodge_error_width") ),
+          box( width = 12, plotOutput("dodge2_error") )
+        )
+      )
+    )
+    
+    
   }
   
 }
