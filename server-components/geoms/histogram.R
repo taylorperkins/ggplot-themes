@@ -4,9 +4,7 @@
 
 
 histogram_server <- function(input, output, session, theme_reactive) { 
-  # https://ggplot2.tidyverse.org/reference/geom_hex.html
-  
-  base_plot <- dget("./plots/geom__hex.R")
+  # https://ggplot2.tidyverse.org/reference/geom_histogram.html
   
   output$histogram <- renderPlot({ 
     ggplot(diamonds, aes(carat)) +

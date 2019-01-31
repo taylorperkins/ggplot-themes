@@ -29,7 +29,8 @@ sidebar <- dashboardSidebar(
         "dotplot",
         "error_bar",
         "hex",
-        "histogram"
+        "histogram",
+        "jitter"
       ),
       selected = 'scatters'),
     

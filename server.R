@@ -18,6 +18,7 @@ source('./server-components/geoms/dotplot.R')
 source('./server-components/geoms/error_bars.R')
 source('./server-components/geoms/hex.R')
 source('./server-components/geoms/histogram.R')
+source('./server-components/geoms/jitter.R')
 
 
 server <- function(input, output, session) {
@@ -118,4 +119,5 @@ server <- function(input, output, session) {
   error_bar_server(input, output, session, theme_reactive)
   hex_server(input, output, session, theme_reactive)
   histogram_server(input, output, session, theme_reactive)
+  jitter_server(input, output, session, theme_reactive)
 }

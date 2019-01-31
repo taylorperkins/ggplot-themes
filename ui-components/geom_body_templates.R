@@ -248,6 +248,22 @@ function(selected_geom) {
     )
     
 
+  } else if (selected_geom == 'jitter') {
+    return(
+      box(
+        width = 12,
+        
+        h2("ggplot Example Jitter"),
+        fluidRow(
+          box( width = 12, plotOutput("jitter") ),
+          box( width = 12, plotOutput("jitter_colour") ),
+          box( width = 12, plotOutput("jitter_width_25") ),
+          box( width = 12, plotOutput("jitter_width_height") )
+        )
+      )
+    )
+    
+    
   }
   
 }
