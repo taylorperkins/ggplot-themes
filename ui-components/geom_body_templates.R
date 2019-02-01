@@ -285,6 +285,19 @@ function(selected_geom) {
     )
     
     
+  } else if (selected_geom == 'qq') {
+    return(
+      viz_outline(
+        label = "ggplot Example Quantile-Quantile (qq)",
+        "qq",
+        "qq_dist",
+        "qq_dist_variable",
+        "qq_dist_variable_colour"
+        
+      )
+    )
+    
+    
   }
   
 }

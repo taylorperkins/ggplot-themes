@@ -22,6 +22,7 @@ source('./server-components/geoms/vertical_intervals.R')
 source('./server-components/geoms/map.R')
 source('./server-components/geoms/path.R')
 source('./server-components/geoms/point.R')
+source('./server-components/geoms/qq.R')
 
 
 server <- function(input, output, session) {
@@ -126,4 +127,5 @@ server <- function(input, output, session) {
   map_server(input, output, session, theme_reactive)
   path_server(input, output, session, theme_reactive)
   point_server(input, output, session, theme_reactive)
+  qq_server(input, output, session, theme_reactive)
 }

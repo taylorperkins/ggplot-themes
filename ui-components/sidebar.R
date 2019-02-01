@@ -33,7 +33,8 @@ sidebar <- dashboardSidebar(
         "vertical_intervals",
         "map",
         "path",
-        "point"
+        "point",
+        "qq"
       ),
       selected = 'jitter'),
     
