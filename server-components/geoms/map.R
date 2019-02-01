@@ -24,31 +24,36 @@ map_server <- function(input, output, session, theme_reactive) {
   output$map <- renderPlot({ 
     ggplot(values) +
       geom_map(aes(map_id = id), map = positions) +
-      expand_limits(positions)
+      expand_limits(positions) +
+      theme_reactive()()
   })
   
   output$map_fill <- renderPlot({ 
     ggplot(values, aes(fill = value)) +
       geom_map(aes(map_id = id), map = positions) +
-      expand_limits(positions)
+      expand_limits(positions) +
+      theme_reactive()()
   })
   
   output$map_fill_ylim <- renderPlot({ 
     ggplot(values, aes(fill = value)) +
       geom_map(aes(map_id = id), map = positions) +
-      expand_limits(positions) + ylim(0, 3)
+      expand_limits(positions) + ylim(0, 3) +
+      theme_reactive()()
   })
 
   output$map_crimes <- renderPlot({ 
     states_map <- map_data("state")
     ggplot(crimes, aes(map_id = state)) +
       geom_map(aes(fill = Murder), map = states_map) +
-      expand_limits(x = states_map$long, y = states_map$lat)
+      expand_limits(x = states_map$long, y = states_map$lat) +
+      theme_reactive()()
     
     last_plot() + coord_map()
     ggplot(crimesm, aes(map_id = state)) +
       geom_map(aes(fill = value), map = states_map) +
       expand_limits(x = states_map$long, y = states_map$lat) +
-      facet_wrap( ~ variable)
+      facet_wrap( ~ variable) +
+      theme_reactive()()
   })
 }

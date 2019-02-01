@@ -17,7 +17,6 @@ sidebar <- dashboardSidebar(
       "geom_selection",
       label = 'First.. Select a geom to test against.',
       choices = c(
-        "scatters",
         "reference_lines",
         "bars",
         "heatmap_2d",
@@ -36,7 +35,7 @@ sidebar <- dashboardSidebar(
         "path",
         "point"
       ),
-      selected = 'point'),
+      selected = 'jitter'),
     
     
     ###################
