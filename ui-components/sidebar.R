@@ -32,9 +32,11 @@ sidebar <- dashboardSidebar(
         "histogram",
         "jitter",
         "vertical_intervals",
-        "map"
+        "map",
+        "path",
+        "point"
       ),
-      selected = 'scatters'),
+      selected = 'point'),
     
     
     ###################

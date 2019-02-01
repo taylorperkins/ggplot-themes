@@ -5,7 +5,6 @@
 ###################
 
 # GEOM SERVERS
-source('./server-components/geoms/scatter.R')
 source('./server-components/geoms/reference_line.R')
 source('./server-components/geoms/bar.R')
 source('./server-components/geoms/heatmap.R')
@@ -21,6 +20,8 @@ source('./server-components/geoms/histogram.R')
 source('./server-components/geoms/jitter.R')
 source('./server-components/geoms/vertical_intervals.R')
 source('./server-components/geoms/map.R')
+source('./server-components/geoms/path.R')
+source('./server-components/geoms/point.R')
 
 
 server <- function(input, output, session) {
@@ -108,7 +109,6 @@ server <- function(input, output, session) {
   ###################
   # ALL GEOM SERVERS (#so-cute)
   ###################
-  scatter_server(input, output, session, theme_reactive)
   reference_line_server(input, output, session, theme_reactive)
   bar_server(input, output, session, theme_reactive)
   heatmap_server(input, output, session, theme_reactive)
@@ -124,4 +124,6 @@ server <- function(input, output, session) {
   jitter_server(input, output, session, theme_reactive)
   vertical_intervals_server(input, output, session, theme_reactive)
   map_server(input, output, session, theme_reactive)
+  path_server(input, output, session, theme_reactive)
+  point_server(input, output, session, theme_reactive)
 }

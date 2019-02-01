@@ -251,5 +251,40 @@ function(selected_geom) {
     )
     
     
+  } else if (selected_geom == 'path') {
+    return(
+      viz_outline(
+        label = "ggplot Example Paths",
+        "date_trend",
+        "date_trend_colour",
+        "step",
+        "path_colour",
+        "trend_red",
+        "arrow",
+        "line_break",
+        "line_type_colour_size"
+      )
+    )
+    
+    
+  } else if (selected_geom == 'point') {
+    return(
+      viz_outline(
+        label = "ggplot Example Point",
+        "point",
+        "point_colour",
+        "point_shape",
+        "point_size",
+        "point_static_colour_size",
+        "point_alpha_10",
+        "point_alpha_20",
+        "point_alpha_100",
+        "point_black_fill",
+        "point_pink_shape"
+      )
+    )
+    
+    
   }
+  
 }
