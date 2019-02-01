@@ -12,6 +12,8 @@ library(shinyWidgets)
 library(ggplot2)
 library(ggthemes)
 library(hexbin)
+library(maps)
+library(reshape2)
 
 
 ###################

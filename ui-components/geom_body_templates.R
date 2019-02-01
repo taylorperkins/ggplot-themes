@@ -239,5 +239,17 @@ function(selected_geom) {
     )
     
     
+  } else if (selected_geom == 'map') {
+    return(
+      viz_outline(
+        label = "ggplot Example Map",
+        "map",
+        "map_fill",
+        "map_fill_ylim",
+        "map_crimes"
+      )
+    )
+    
+    
   }
 }

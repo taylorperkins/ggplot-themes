@@ -31,7 +31,8 @@ sidebar <- dashboardSidebar(
         "hex",
         "histogram",
         "jitter",
-        "vertical_intervals"
+        "vertical_intervals",
+        "map"
       ),
       selected = 'scatters'),
     

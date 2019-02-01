@@ -20,6 +20,7 @@ source('./server-components/geoms/hex.R')
 source('./server-components/geoms/histogram.R')
 source('./server-components/geoms/jitter.R')
 source('./server-components/geoms/vertical_intervals.R')
+source('./server-components/geoms/map.R')
 
 
 server <- function(input, output, session) {
@@ -122,4 +123,5 @@ server <- function(input, output, session) {
   histogram_server(input, output, session, theme_reactive)
   jitter_server(input, output, session, theme_reactive)
   vertical_intervals_server(input, output, session, theme_reactive)
+  map_server(input, output, session, theme_reactive)
 }
