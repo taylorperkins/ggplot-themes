@@ -1,289 +1,243 @@
 function(selected_geom) {
+  viz_outline <- function(label, ...) {
+    parent_width <- 12
+    plot_width <- 12
+    
+    box(
+      width = parent_width,
+      
+      h2(label),
+      fluidRow(
+        lapply(list(...), function(id) { box( width = plot_width, plotOutput(id) ) })
+      )
+    )
+  }
 
 
   if (selected_geom == 'scatters') {
     return(
-      box(
-        width = 12,
-         
-        h2("ggplot Example Scatter Plots"),
-        fluidRow(
-          box( width = 12, plotOutput("scatter") ),
-          box( width = 12, plotOutput("scatter_facet") )
-        )
+      viz_outline(
+        label = "ggplot Example Scatter Plots",
+        "scatter",
+        "scatter_facet"
       )
     )
     
 
   } else if (selected_geom == 'reference_lines') {
     return(
-      box(
-        width = 12,
-        
-        h2("ggplot Example Reference Lines"),
-        fluidRow(
-          box( width = 12, plotOutput("rl_vline_1") ),
-          box( width = 12, plotOutput("rl_vline_2") ),
-          box( width = 12, plotOutput("rl_hline") ),
-          box( width = 12, plotOutput("rl_abline_1") ),
-          box( width = 12, plotOutput("rl_abline_2") ),
-          box( width = 12, plotOutput("rl_abline_3") ),
-          box( width = 12, plotOutput("rl_smooth") ),
-          box( width = 12, plotOutput("rl_hline_facet") ),
-          box( width = 12, plotOutput("rl_hline_facet_mult_aes") )
-        ) 
+      viz_outline(
+        label = "ggplot Example Reference Lines",
+        "rl_vline_1",
+        "rl_vline_2",
+        "rl_hline",
+        "rl_abline_1",
+        "rl_abline_2",
+        "rl_abline_3",
+        "rl_smooth",
+        "rl_hline_facet",
+        "rl_hline_facet_mult_aes"
       )
     )
+    
+
   } else if (selected_geom == 'bars') {
     return(
-      box(
-        width = 12,
-        
-        h2("ggplot Example Bar Plots"),
-        fluidRow(
-          box( width = 12, plotOutput("bar") ),
-          box( width = 12, plotOutput("bar_weight_aes") ),
-          box( width = 12, plotOutput("bar_fill_aes") ),
-          box( width = 12, plotOutput("bar_position") ),
-          box( width = 12, plotOutput("bar_col_means") ),
-          box( width = 12, plotOutput("bar_continuous") ),
-          box( width = 12, plotOutput("bar_hist") )
-        )
+      viz_outline(
+        label = "ggplot Example Bar Plots",
+        "bar",
+        "bar_weight_aes",
+        "bar_fill_aes",
+        "bar_position",
+        "bar_col_means",
+        "bar_continuous",
+        "bar_hist"
       )
     )
     
 
   } else if (selected_geom == 'heatmap_2d') {
     return(
-      box(
-        width = 12,
-        
-        h2("ggplot Example Heatmaps"),
-        fluidRow(
-          box( width = 12, plotOutput("bin_2d") ),
-          box( width = 12, plotOutput("bin_2d_10") ),
-          box( width = 12, plotOutput("bin_2d_30") ),
-          box( width = 12, plotOutput("bin_2d_binwidtth") )
-        ) 
+      viz_outline(
+        label = "ggplot Example Heatmaps",
+        "bin_2d",
+        "bin_2d_10",
+        "bin_2d_30",
+        "bin_2d_binwidtth"
       )
     )
     
 
   } else if (selected_geom == 'boxplot') {
     return(
-      box(
-        width = 12,
-        
-        h2("ggplot Example Boxplots"),
-        fluidRow(
-          box( width = 12, plotOutput("boxplot") ),
-          box( width = 12, plotOutput("boxplot_coord_flip") ),
-          box( width = 12, plotOutput("boxplot_notch") ),
-          box( width = 12, plotOutput("boxplot_varwidth") ),
-          box( width = 12, plotOutput("boxplot_fill") ),
-          box( width = 12, plotOutput("boxplot_outlier") ),
-          box( width = 12, plotOutput("boxplot_jitter") ),
-          box( width = 12, plotOutput("boxplot_aes_colour") ),
-          box( width = 12, plotOutput("boxplot_continuous_x") ),
-          box( width = 12, plotOutput("boxplot_continuous_x_2") ),
-          box( width = 12, plotOutput("boxplot_transparent_outliers") ),
-          box( width = 12, plotOutput("boxplot_identity") )
-        )
+      viz_outline(
+        label = "ggplot Example Boxplots",
+        "boxplot",
+        "boxplot_coord_flip",
+        "boxplot_notch",
+        "boxplot_varwidth",
+        "boxplot_fill",
+        "boxplot_outlier",
+        "boxplot_jitter",
+        "boxplot_aes_colour",
+        "boxplot_continuous_x",
+        "boxplot_continuous_x_2",
+        "boxplot_transparent_outliers",
+        "boxplot_identity"
       )
     )
     
     
   } else if (selected_geom == 'contour') {
     return(
-      box(
-        width = 12,
-        
-        h2("ggplot Example 2d contours of a 3d Surface"),
-        fluidRow(
-          box( width = 12, plotOutput("contour") ),
-          box( width = 12, plotOutput("contour_density_2d") ),
-          box( width = 12, plotOutput("contour_bins_2") ),
-          box( width = 12, plotOutput("contour_bins_10") ),
-          box( width = 12, plotOutput("contour_binwidth_01") ),
-          box( width = 12, plotOutput("contour_binwidth_001") ),
-          box( width = 12, plotOutput("contour_aes_colour") ),
-          box( width = 12, plotOutput("contour_colour_red") ),
-          box( width = 12, plotOutput("contour_raster_with_contour") )
-        )
+      viz_outline(
+        label = "ggplot Example 2d contours of a 3d Surface",
+        "contour",
+        "contour_density_2d",
+        "contour_bins_2",
+        "contour_bins_10",
+        "contour_binwidth_01",
+        "contour_binwidth_001",
+        "contour_aes_colour",
+        "contour_colour_red",
+        "contour_raster_with_contour"
       )
     )
     
     
   } else if (selected_geom == 'count_overlap') {
     return(
-      box(
-        width = 12,
-        
-        h2("ggplot Example Count Overlapping Points"),
-        fluidRow(
-          box( width = 12, plotOutput("count_overlap_point") ),
-          box( width = 12, plotOutput("count_overlap_count") ),
-          box( width = 12, plotOutput("count_overlap_scale_size_area") ),
-          box( width = 12, plotOutput("count_overlap_count_aes") ),
-          box( width = 12, plotOutput("count_overlap_count_aes_scale_size") ),
-          box( width = 12, plotOutput("count_overlap_count_aes_scale_size_group_cut") ),
-          box( width = 12, plotOutput("count_overlap_count_aes_scale_size_group_clarity") )
-        )
+      viz_outline(
+        label = "ggplot Example Count Overlapping Points",
+        "count_overlap_point",
+        "count_overlap_count",
+        "count_overlap_scale_size_area",
+        "count_overlap_count_aes",
+        "count_overlap_count_aes_scale_size",
+        "count_overlap_count_aes_scale_size_group_cut",
+        "count_overlap_count_aes_scale_size_group_clarity"
       )
     )
     
     
   } else if (selected_geom == 'density') {
     return(
-      box(
-        width = 12,
-        
-        h2("ggplot Example Smoothed Density Estimates"),
-        fluidRow(
-          box( width = 12, plotOutput("density") ),
-          box( width = 12, plotOutput("density_adjust_1_5") ),
-          box( width = 12, plotOutput("density_adjust_5") ),
-          box( width = 12, plotOutput("density_xlim") ),
-          box( width = 12, plotOutput("density_xlim_alpha") ),
-          box( width = 12, plotOutput("density_stacked") ),
-          box( width = 12, plotOutput("density_stacked_count") ),
-          box( width = 12, plotOutput("density_filled") )
-        )
+      viz_outline(
+        label = "ggplot Example Smoothed Density Estimates",
+        "density",
+        "density_adjust_1_5",
+        "density_adjust_5",
+        "density_xlim",
+        "density_xlim_alpha",
+        "density_stacked",
+        "density_stacked_count",
+        "density_filled"
       )
     )
     
     
   } else if (selected_geom == 'density_2d') {
     return(
-      box(
-        width = 12,
-        
-        h2("ggplot Example Contours of a 2d density estimate"),
-        fluidRow(
-          box( width = 12, plotOutput("density_2d") ),
-          box( width = 12, plotOutput("density_2d_poly") ),
-          box( width = 12, plotOutput("density_2d_aes_colour") ),
-          box( width = 12, plotOutput("density_2d_poly_facet") ),
-          box( width = 12, plotOutput("density_2d_poly_facet_per") ),
-          box( width = 12, plotOutput("density_2d_raster") ),
-          box( width = 12, plotOutput("density_2d_point") )
-        )
+      viz_outline(
+        label = "ggplot Example Contours of a 2d density estimate",
+        "density_2d",
+        "density_2d_poly",
+        "density_2d_aes_colour",
+        "density_2d_poly_facet",
+        "density_2d_poly_facet_per",
+        "density_2d_raster",
+        "density_2d_point"
       )
     )
     
     
   } else if (selected_geom == 'dotplot') {
     return(
-      box(
-        width = 12,
-        
-        h2("ggplot Example Dot Plot"),
-        fluidRow(
-          box( width = 12, plotOutput("dotplot") ),
-          box( width = 12, plotOutput("dotplot_binwidth_1_5") ),
-          box( width = 12, plotOutput("dotplot_method_histodot") ),
-          box( width = 12, plotOutput("dotplot_stackdir_center") ),
-          box( width = 12, plotOutput("dotplot_stackdir_centerwhole") ),
-          box( width = 12, plotOutput("dotplot_scale_y") ),
-          box( width = 12, plotOutput("dotplot_stack_ratio_7") ),
-          box( width = 12, plotOutput("dotplot_dotsize_1_25") ),
-          box( width = 12, plotOutput("dotplot_binaxis_y") ),
-          box( width = 12, plotOutput("dotplot_binaxis_y_factor") ),
-          box( width = 12, plotOutput("dotplot_binaxis_y_factor_centerwhole") ),
-          box( width = 12, plotOutput("dotplot_factor_center_dodge") ),
-          box( width = 12, plotOutput("dotplot_factor_center_binpositions") ),
-          box( width = 12, plotOutput("dotplot_factor_stackgroups_histdot") ),
-          box( width = 12, plotOutput("dotplot_binaxis_y_factor_histodot") )
-        )
+      viz_outline(
+        label = "ggplot Example Dot Plot",
+        "dotplot",
+        "dotplot_binwidth_1_5",
+        "dotplot_method_histodot",
+        "dotplot_stackdir_center",
+        "dotplot_stackdir_centerwhole",
+        "dotplot_scale_y",
+        "dotplot_stack_ratio_7",
+        "dotplot_dotsize_1_25",
+        "dotplot_binaxis_y",
+        "dotplot_binaxis_y_factor",
+        "dotplot_binaxis_y_factor_centerwhole",
+        "dotplot_factor_center_dodge",
+        "dotplot_factor_center_binpositions",
+        "dotplot_factor_stackgroups_histdot",
+        "dotplot_binaxis_y_factor_histodot"
       )
     )
     
     
   } else if (selected_geom == 'error_bar') {
     return(
-      box(
-        width = 12,
-        
-        h2("ggplot Example Error Bars"),
-        fluidRow(
-          box( width = 12, plotOutput("error_bar") ),
-          box( width = 12, plotOutput("error_bar_with_height") )
-        )
+      viz_outline(
+        label = "ggplot Example Error Bars",
+        "error_bar",
+        "error_bar_with_height"
       )
     )
     
     
   } else if (selected_geom == 'hex') {
     return(
-      box(
-        width = 12,
-        
-        h2("ggplot Example Hex 2d Bin Counts"),
-        fluidRow(
-          box( width = 12, plotOutput("hex") ),
-          box( width = 12, plotOutput("hex_bins_10") ),
-          box( width = 12, plotOutput("hex_bins_30") ),
-          box( width = 12, plotOutput("hex_binwidth_1000") ),
-          box( width = 12, plotOutput("hex_binwidth_500") )
-        )
+      viz_outline(
+        label = "ggplot Example Hex 2d Bin Counts",
+        "hex",
+        "hex_bins_10",
+        "hex_bins_30",
+        "hex_binwidth_1000",
+        "hex_binwidth_500"
       )
     )
     
     
   } else if (selected_geom == 'histogram') {
     return(
-      box(
-        width = 12,
-        
-        h2("ggplot Example Histograms and Frequency Polygons"),
-        fluidRow(
-          box( width = 12, plotOutput("histogram") ),
-          box( width = 12, plotOutput("histogram_binwidth_01") ),
-          box( width = 12, plotOutput("histogram_bins_200") ),
-          box( width = 12, plotOutput("histogram_fill_binwidth_500") ),
-          box( width = 12, plotOutput("histogram_colour_binwidth_500") ),
-          box( width = 12, plotOutput("histogram_stat_density") )
-        )
+      viz_outline(
+        label = "ggplot Example Histograms and Frequency Polygons",
+        "histogram",
+        "histogram_binwidth_01",
+        "histogram_bins_200",
+        "histogram_fill_binwidth_500",
+        "histogram_colour_binwidth_500",
+        "histogram_stat_density"
       )
     )
     
 
   } else if (selected_geom == 'jitter') {
     return(
-      box(
-        width = 12,
-        
-        h2("ggplot Example Jitter"),
-        fluidRow(
-          box( width = 12, plotOutput("jitter") ),
-          box( width = 12, plotOutput("jitter_colour") ),
-          box( width = 12, plotOutput("jitter_width_25") ),
-          box( width = 12, plotOutput("jitter_width_height") )
-        )
+      viz_outline(
+        label = "ggplot Example Jitter",
+        "jitter",
+        "jitter_colour",
+        "jitter_width_25",
+        "jitter_width_height"
       )
     )
     
     
   } else if (selected_geom == 'vertical_intervals') {
     return(
-      box(
-        width = 12,
-        
-        h2("ggplot Example Vertical Intervals: (lines, crossbars & errorbars)"),
-        fluidRow(
-          box( width = 12, plotOutput("linerange") ),
-          box( width = 12, plotOutput("pointrange") ),
-          box( width = 12, plotOutput("crossbar") ),
-          box( width = 12, plotOutput("errorbar") ),
-          box( width = 12, plotOutput("line_errorbar") ),
-          box( width = 12, plotOutput("dodge_error") ),
-          box( width = 12, plotOutput("dodge_error_width") ),
-          box( width = 12, plotOutput("dodge2_error") )
-        )
+      viz_outline(
+        label = "ggplot Example Vertical Intervals: (lines, crossbars & errorbars)",
+        "linerange",
+        "pointrange",
+        "crossbar",
+        "errorbar",
+        "line_errorbar",
+        "dodge_error",
+        "dodge_error_width",
+        "dodge2_error"
       )
     )
     
     
   }
-  
 }
