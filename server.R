@@ -23,6 +23,7 @@ source('./server-components/geoms/map.R')
 source('./server-components/geoms/path.R')
 source('./server-components/geoms/point.R')
 source('./server-components/geoms/qq.R')
+source('./server-components/geoms/quantile_regression.R')
 
 
 server <- function(input, output, session) {
@@ -128,4 +129,5 @@ server <- function(input, output, session) {
   path_server(input, output, session, theme_reactive)
   point_server(input, output, session, theme_reactive)
   qq_server(input, output, session, theme_reactive)
+  quantile_regression_server(input, output, session, theme_reactive)
 }

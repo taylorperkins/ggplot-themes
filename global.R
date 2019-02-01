@@ -14,6 +14,7 @@ library(ggthemes)
 library(hexbin)
 library(maps)
 library(reshape2)
+library(quantreg)
 
 
 ###################

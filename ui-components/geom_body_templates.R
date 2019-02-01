@@ -298,6 +298,21 @@ function(selected_geom) {
     )
     
     
+  } else if (selected_geom == 'quantile') {
+    return(
+      viz_outline(
+        label = "ggplot Example Quantile-Regression",
+        "quantile",
+        "quantile_05",
+        "quantile_by_seq",
+        "quantile_rqss",
+        "quantile_rqss_smoothing",
+        "quantile_red"
+        
+      )
+    )
+    
+    
   }
   
 }
