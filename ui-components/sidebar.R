@@ -35,7 +35,9 @@ sidebar <- dashboardSidebar(
         "path",
         "point",
         "qq",
-        "quantile"
+        "quantile",
+        "ribbons",
+        "rug"
       ),
       selected = 'jitter'),
     

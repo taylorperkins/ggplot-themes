@@ -313,6 +313,29 @@ function(selected_geom) {
     )
     
     
+  } else if (selected_geom == 'ribbons') {
+    return(
+      viz_outline(
+        label = "ggplot Example Ribbons and Area",
+        "ribbon_level",
+        "ribbon_line"
+        
+      )
+    )
+    
+    
+  } else if (selected_geom == 'rug') {
+    return(
+      viz_outline(
+        label = "ggplot Example Rug",
+        "rug",
+        "rug_b_side",
+        "rug_trbl_side",
+        "rug_with_jitter"
+      )
+    )
+    
+    
   }
   
 }
