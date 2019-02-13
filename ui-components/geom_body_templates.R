@@ -358,6 +358,16 @@ function(selected_geom) {
     )
     
     
+  } else if (selected_geom == 'spoke') {
+    return(
+      viz_outline(
+        label = "ggplot Example Spoke",
+        "spoke",
+        "spoke_by_variable"
+      )
+    )
+    
+    
   }
   
 }

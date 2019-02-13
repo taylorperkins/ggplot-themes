@@ -28,6 +28,7 @@ source('./server-components/geoms/ribbons.R')
 source('./server-components/geoms/rug.R')
 source('./server-components/geoms/segment.R')
 source('./server-components/geoms/smooth.R')
+source('./server-components/geoms/spoke.R')
 
 
 server <- function(input, output, session) {
@@ -138,4 +139,5 @@ server <- function(input, output, session) {
   rug_server(input, output, session, theme_reactive)
   segment_server(input, output, session, theme_reactive)
   smooth_server(input, output, session, theme_reactive)
+  spoke_server(input, output, session, theme_reactive)
 }

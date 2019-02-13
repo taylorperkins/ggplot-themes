@@ -39,7 +39,8 @@ sidebar <- dashboardSidebar(
         "ribbons",
         "rug",
         "segment",
-        "smooth"
+        "smooth",
+        "spoke"
       ),
       selected = 'jitter'),
     
