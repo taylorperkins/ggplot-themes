@@ -368,6 +368,17 @@ function(selected_geom) {
     )
     
     
+  } else if (selected_geom == 'text') {
+    return(
+      viz_outline(
+        label = "ggplot Example Text",
+        "text",
+        "text_label",
+        "text_colour"
+      )
+    )
+    
+    
   }
   
 }

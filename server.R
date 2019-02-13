@@ -29,6 +29,7 @@ source('./server-components/geoms/rug.R')
 source('./server-components/geoms/segment.R')
 source('./server-components/geoms/smooth.R')
 source('./server-components/geoms/spoke.R')
+source('./server-components/geoms/text.R')
 
 
 server <- function(input, output, session) {
@@ -140,4 +141,5 @@ server <- function(input, output, session) {
   segment_server(input, output, session, theme_reactive)
   smooth_server(input, output, session, theme_reactive)
   spoke_server(input, output, session, theme_reactive)
+  text_server(input, output, session, theme_reactive)
 }
