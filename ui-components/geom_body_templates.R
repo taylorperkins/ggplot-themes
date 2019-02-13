@@ -336,6 +336,28 @@ function(selected_geom) {
     )
     
     
+  } else if (selected_geom == 'segment') {
+    return(
+      viz_outline(
+        label = "ggplot Example Segments",
+        "segment",
+        "segment_map"
+      )
+    )
+    
+    
+  } else if (selected_geom == 'smooth') {
+    return(
+      viz_outline(
+        label = "ggplot Example Smoothing",
+        "smooth",
+        "smooth_lm",
+        "smooth_lm_colour",
+        "smooth_facet"
+      )
+    )
+    
+    
   }
   
 }

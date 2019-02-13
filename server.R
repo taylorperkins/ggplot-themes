@@ -26,6 +26,8 @@ source('./server-components/geoms/qq.R')
 source('./server-components/geoms/quantile_regression.R')
 source('./server-components/geoms/ribbons.R')
 source('./server-components/geoms/rug.R')
+source('./server-components/geoms/segment.R')
+source('./server-components/geoms/smooth.R')
 
 
 server <- function(input, output, session) {
@@ -134,4 +136,6 @@ server <- function(input, output, session) {
   quantile_regression_server(input, output, session, theme_reactive)
   ribbons_server(input, output, session, theme_reactive)
   rug_server(input, output, session, theme_reactive)
+  segment_server(input, output, session, theme_reactive)
+  smooth_server(input, output, session, theme_reactive)
 }
