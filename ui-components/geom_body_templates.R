@@ -379,6 +379,17 @@ function(selected_geom) {
     )
     
     
+  } else if (selected_geom == 'raster') {
+    return(
+      viz_outline(
+        label = "ggplot Example Raster",
+        "raster",
+        "raster_grey50",
+        "raster_density"
+      )
+    )
+    
+    
   }
   
 }
