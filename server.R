@@ -31,6 +31,7 @@ source('./server-components/geoms/smooth.R')
 source('./server-components/geoms/spoke.R')
 source('./server-components/geoms/text.R')
 source('./server-components/geoms/raster.R')
+source('./server-components/geoms/violin.R')
 
 
 server <- function(input, output, session) {
@@ -144,4 +145,5 @@ server <- function(input, output, session) {
   spoke_server(input, output, session, theme_reactive)
   text_server(input, output, session, theme_reactive)
   raster_server(input, output, session, theme_reactive)
+  violin_server(input, output, session, theme_reactive)
 }

@@ -42,7 +42,8 @@ sidebar <- dashboardSidebar(
         "smooth",
         "spoke",
         "text",
-        "raster"
+        "raster",
+        "violin"
       ),
       selected = 'jitter'),
     

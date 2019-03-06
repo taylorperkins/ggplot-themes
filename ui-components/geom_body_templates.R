@@ -390,6 +390,17 @@ function(selected_geom) {
     )
     
     
+  } else if (selected_geom == 'violin') {
+    return(
+      viz_outline(
+        label = "ggplot Example Violin",
+        "violin",
+        "violin_aes_fill",
+        "violin_aes_fill_factor"
+      )
+    )
+    
+    
   }
   
 }
